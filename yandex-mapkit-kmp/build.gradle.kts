@@ -97,7 +97,6 @@ mavenPublishing {
     coordinates(group.toString(), name, version.toString())
     publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
 
-    signAllPublications()
     configure(
         KotlinMultiplatform(
             javadocJar = JavadocJar.Empty(),
