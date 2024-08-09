@@ -63,7 +63,15 @@ fun MapScreen(modifier: Modifier = Modifier) {
     rememberAndInitializeMapKit().bindToLifecycleOwner()
 
     val snackbarHostState = remember { SnackbarHostState() }
-    val mapController = rememberYandexMapController()
+    val mapController = rememberYandexMapController().apply {
+        with(mapWindow.map) {
+            isTiltGesturesEnabled = false
+            isFastTapEnabled = false
+            isRotateGesturesEnabled = false
+            isZoomGesturesEnabled = false
+            isScrollGesturesEnabled = false
+        }
+    }
     val map = mapController.mapWindow.map
     val placemarks = remember { randomPlacemarks() }
 
